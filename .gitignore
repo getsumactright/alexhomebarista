@@ -1,3 +1,5 @@
 .impeccable/
 .claude/
 .DS_Store
+motion/node_modules/
+motion/out/

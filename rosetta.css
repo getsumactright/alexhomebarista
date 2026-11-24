@@ -1,0 +1,199 @@
+/* alexhomebarista · Rosetta (demo C)
+   Seen from above, every cup is a circle. Espresso ground, milk-white type, crema for what is active. */
+
+.rosetta {
+  --ground: #1c120c;
+  --ink: #f4ede3;
+  --ink-2: rgba(244, 237, 227, 0.76);
+  --ink-3: rgba(244, 237, 227, 0.6);
+  --line: rgba(244, 237, 227, 0.12);
+  --line-strong: rgba(244, 237, 227, 0.22);
+  --fill: rgba(244, 237, 227, 0.07);
+  --fill-hover: rgba(244, 237, 227, 0.12);
+  --amber: #d49b63;
+  --crema: #c98d55;
+  --crema-hi: #dba774;
+  --espresso-ink: #1c120c;
+  --display: "Bricolage Grotesque", "Host Grotesk", -apple-system, sans-serif;
+  --ceramic: radial-gradient(circle at 38% 32%, #fffdf9, #f0e7db 62%, #d8cab8);
+  color-scheme: dark;
+  background: radial-gradient(120% 60% at 50% 0%, #2b1b12 0%, var(--ground) 62%) no-repeat, var(--ground);
+  scrollbar-color: rgba(244, 237, 227, 0.25) transparent;
+}
+.rosetta ::selection { background: var(--crema); color: var(--espresso-ink); }
+
+/* nav & tab bar in the espresso material */
+.rosetta .nav { background: rgba(28, 18, 12, 0.74); box-shadow: 0 1px 0 var(--line); }
+.nav__store {
+  justify-self: end; display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.8125rem; font-weight: 560; color: var(--ink-2); text-decoration: none;
+  padding: 6px 10px; border-radius: 999px; transition: color .2s, background-color .2s;
+}
+.nav__store:hover { color: var(--ink); background: var(--fill); }
+.nav__store .ico { width: 15px; height: 15px; }
+.rosetta .tabbar { background: rgba(43, 29, 20, 0.82); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), inset 0 0.5px 0 rgba(255, 255, 255, 0.12); }
+.rosetta .tabbar a[aria-current="true"] { background: var(--ink); color: var(--espresso-ink); }
+.rosetta .skip { background: var(--ink); color: var(--espresso-ink); }
+
+/* ───────── the pour ───────── */
+.rosetta .hero { padding-top: calc(var(--nav-h) + clamp(20px, 4.5vh, 56px)); padding-bottom: 8px; }
+.pour {
+  --d: min(86vw, 62vh, 580px);
+  position: relative; width: var(--d); aspect-ratio: 1; display: grid; place-items: center;
+}
+.pour__words {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  font: 560 22px/1 "Host Grotesk", sans-serif; letter-spacing: 0.2em; fill: var(--crema-hi);
+  animation: rim 90s linear infinite;
+}
+@keyframes rim { to { rotate: 360deg; } }
+.pour:hover .pour__words { animation-play-state: paused; }
+.pour__saucer {
+  width: 84%; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
+  background: radial-gradient(circle, #ebe1d4 0 57%, #dacdbc 58.5% 60%, #f2eadf 62%, #e6dbcc 96%, #d4c5b2 100%);
+  box-shadow: 0 34px 70px rgba(0, 0, 0, 0.5), 0 2px 0 rgba(255, 255, 255, 0.06) inset;
+}
+.pour__cup {
+  position: relative; width: 66%; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
+  background: var(--ceramic);
+  box-shadow: 10px 18px 30px rgba(52, 30, 14, 0.38), 0 0 0 1px rgba(60, 40, 20, 0.06);
+}
+.pour__handle {
+  position: absolute; right: -19%; top: 50%; translate: 0 -50%; width: 25%; height: 15%;
+  border-radius: 0 999px 999px 0; background: linear-gradient(#fffdf9, #e2d5c4);
+  box-shadow: 6px 8px 14px rgba(52, 30, 14, 0.28);
+}
+.pour__surface { position: relative; width: 84%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; background: #8a522c; }
+.pour__surface video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pour__surface::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 8px 18px rgba(30, 12, 2, 0.55), inset 0 -2px 6px rgba(255, 240, 220, 0.12); pointer-events: none; }
+
+.rosetta .hero__sub { margin-top: clamp(18px, 3vh, 30px); }
+
+/* search on espresso */
+.rosetta .search { margin-top: 26px; }
+.rosetta .search__input {
+  color: var(--ink); background: rgba(244, 237, 227, 0.07);
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+}
+.rosetta .search__input::placeholder { color: rgba(244, 237, 227, 0.58); }
+.rosetta .search__input:focus { background: rgba(244, 237, 227, 0.1); box-shadow: inset 0 0 0 1.5px var(--crema), 0 12px 32px rgba(0, 0, 0, 0.35); }
+.rosetta .search__panel { background: rgba(40, 27, 19, 0.97); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--line); }
+.rosetta .result__name mark { box-shadow: inset 0 -0.42em 0 rgba(201, 141, 85, 0.45); }
+
+/* sections: centered, display face */
+.rosetta .sec__head { display: block; text-align: center; }
+.rosetta .sec__intro h2 { font-family: var(--display); font-weight: 600; font-size: clamp(2.75rem, 7vw, 5.25rem); letter-spacing: -0.04em; line-height: 0.98; }
+.rosetta .sec__intro p { margin-inline: auto; }
+.rosetta .seg { display: grid; width: max-content; margin-inline: auto; }
+.rosetta .seg__thumb { background: var(--ink); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
+.rosetta .seg button[aria-checked="true"] { color: var(--espresso-ink); }
+
+/* ───────── cups from above ───────── */
+.rosetta .shelf { grid-template-columns: repeat(auto-fill, minmax(min(100%, 190px), 1fr)); gap: clamp(40px, 5vw, 64px) clamp(16px, 3vw, 36px); }
+.rosetta .item__object { height: 196px; align-items: center; margin-bottom: 18px; transition: none; }
+.rosetta .item:hover .item__object { transform: none; }
+.cup { --s: 150px; position: relative; width: var(--s); aspect-ratio: 1; border-radius: 50%; transition: rotate .8s var(--ease-out), translate .5s var(--ease-out); }
+.cup--lg { --s: 196px; }
+.item:hover .cup { rotate: 16deg; translate: 0 -4px; }
+.item:active .cup { rotate: 8deg; transition-duration: .15s; }
+.cup__surface { position: absolute; border-radius: 50%; display: grid; place-items: center; overflow: hidden; }
+
+.cup--hot { background: var(--ceramic); box-shadow: 8px 14px 24px rgba(0, 0, 0, 0.5); }
+.cup--hot .cup__surface {
+  inset: 12%;
+  background: radial-gradient(circle at 50% 46%, #c08550, #8d532d 62%, #5e3219);
+  box-shadow: inset 0 5px 12px rgba(30, 12, 2, 0.6);
+}
+.cup--hot .cup__surface svg { width: 74%; height: 74%; filter: blur(0.3px); }
+.cup__handle {
+  position: absolute; right: -17%; top: 50%; translate: 0 -50%; width: 24%; height: 16%;
+  border-radius: 0 999px 999px 0; background: linear-gradient(#fffdf9, #e0d3c2); box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+.cup--iced {
+  background: radial-gradient(circle, rgba(244, 237, 227, 0.05) 62%, rgba(244, 237, 227, 0.2));
+  box-shadow: inset 0 0 0 2px rgba(244, 237, 227, 0.34), 8px 14px 24px rgba(0, 0, 0, 0.45);
+}
+.cup--iced .cup__surface {
+  inset: 7%;
+  background: radial-gradient(circle at 42% 38%, color-mix(in srgb, var(--top) 72%, #fff), var(--top) 56%, color-mix(in srgb, var(--top) 72%, #000));
+}
+.cup--iced .cup__surface::after { content: ""; position: absolute; inset: 0; border-radius: 50%; box-shadow: inset 0 0 0 6px color-mix(in srgb, var(--tint) 55%, transparent); }
+.cup--iced i { position: absolute; width: 27%; aspect-ratio: 1; border-radius: 20%; background: rgba(255, 255, 255, 0.26); box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.6); }
+.cup--iced i:nth-child(1) { left: 18%; top: 20%; rotate: 12deg; }
+.cup--iced i:nth-child(2) { left: 50%; top: 27%; rotate: -10deg; }
+.cup--iced i:nth-child(3) { left: 28%; top: 50%; rotate: 24deg; }
+.cup__straw { position: absolute; left: 60%; top: 57%; width: 13%; aspect-ratio: 1; border-radius: 50%; background: var(--tint); box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.85), 2px 3px 6px rgba(0, 0, 0, 0.35); }
+
+.cup--dish { --s: 124px; background: var(--ceramic); box-shadow: 6px 12px 22px rgba(0, 0, 0, 0.5); }
+.cup--dish.cup--lg { --s: 168px; }
+.cup--dish .cup__surface {
+  inset: 15%;
+  background: radial-gradient(circle at 38% 34%, color-mix(in srgb, var(--tint) 55%, #fff) 0 7%, var(--tint) 34%, color-mix(in srgb, var(--tint) 72%, #000));
+  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+/* codes on espresso */
+.rosetta .storefront { background: var(--crema); color: var(--espresso-ink); box-shadow: 0 18px 44px rgba(0, 0, 0, 0.4); }
+.rosetta .storefront__text > span { color: rgba(28, 18, 12, 0.9); }
+.rosetta .storefront__ico { color: var(--espresso-ink); }
+.rosetta .code { background: rgba(244, 237, 227, 0.06); box-shadow: inset 0 0 0 1px var(--line-strong); color: var(--ink); }
+.rosetta .code:hover { background: rgba(244, 237, 227, 0.11); box-shadow: inset 0 0 0 1px rgba(244, 237, 227, 0.36); }
+.rosetta .code.is-copied { background: var(--crema); color: var(--espresso-ink); }
+.rosetta .code.is-copied .ico { color: var(--espresso-ink); }
+.rosetta .code--none, .rosetta .code--none:hover { background: none; box-shadow: none; color: var(--ink-3); }
+
+/* brands, close */
+.rosetta .wordmarks li { font-family: var(--display); font-weight: 600; letter-spacing: -0.035em; }
+.rosetta .btn--primary { background: var(--crema); color: var(--espresso-ink); }
+.rosetta .btn--primary:hover { background: var(--crema-hi); }
+.rosetta .pitch { display: block; text-align: center; }
+.rosetta .pitch__line { max-width: none; font-family: var(--display); }
+.rosetta .pitch__actions { justify-content: center; margin-top: 24px; }
+.rosetta .foot { display: block; text-align: center; }
+.rosetta .foot__line { font-family: var(--display); }
+.rosetta .foot__social { justify-content: center; }
+
+/* sheet & toast */
+.rosetta .sheet { background: #241710; color: var(--ink); box-shadow: 0 -16px 60px rgba(0, 0, 0, 0.6); }
+.rosetta .sheet::backdrop { background: rgba(8, 4, 2, 0.6); }
+.rosetta .sheet__grip span { background: rgba(244, 237, 227, 0.26); }
+.rosetta .sheet__title { font-family: var(--display); }
+.rosetta .toast { background: rgba(244, 237, 227, 0.96); color: var(--espresso-ink); }
+
+@media (max-width: 767px) {
+  .pour { --d: min(92vw, 58vh); }
+  .rosetta .shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cup { --s: 124px; }
+  .cup--dish { --s: 104px; }
+  .rosetta .item__object { height: 160px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pour__words { animation: none; }
+  .item:hover .cup { rotate: none; translate: none; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .rosetta .nav, .rosetta .tabbar, .rosetta .search__panel { background: #2b1d14; }
+}
+
+/* ───────── finish-review fixes ───────── */
+/* storefront: a hairline row led by a crema ring, not a slab */
+.rosetta .storefront { background: none; color: var(--ink); border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line-strong); }
+.rosetta .storefront:hover { background: var(--fill); box-shadow: inset 0 0 0 1px var(--crema); transform: none; }
+.rosetta .storefront__text > span { color: var(--ink-2); }
+.rosetta .storefront__ico { width: 56px; height: 56px; padding: 16px; border-radius: 50%; color: var(--crema); box-shadow: 0 0 0 2px var(--crema), inset 0 0 0 8px var(--ground), inset 0 0 0 9px var(--line-strong); }
+/* active state is crema: the ring on the cup you're about to open, the filter, the current tab */
+.item:hover .cup, .item:focus-visible .cup { box-shadow: 0 0 0 4px var(--ground), 0 0 0 6px var(--crema), 8px 14px 24px rgba(0, 0, 0, 0.5); }
+.rosetta .seg__thumb { background: var(--crema); }
+.rosetta .tabbar a[aria-current="true"] { background: var(--crema); color: var(--espresso-ink); }
+/* one close, a real h3 step, round chips, crema caret */
+.rosetta .foot__line { font-family: "Host Grotesk", sans-serif; font-size: 1rem; font-weight: 500; letter-spacing: 0; color: var(--ink-2); }
+.rosetta .sub-h { font-family: var(--display); font-size: clamp(1.375rem, 2vw, 1.5rem); letter-spacing: -0.02em; margin: 8px 0 20px; }
+.rosetta .tag, .rosetta .code { border-radius: 999px; }
+.rosetta .item__spec { text-wrap: balance; }
+.rosetta .search__input { caret-color: var(--crema); }
+/* the close sits inside saucer rings: one circle per view */
+.rosetta .pitch { position: relative; isolation: isolate; padding-block: clamp(80px, 10vw, 140px); }
+.rosetta .pitch::before, .rosetta .pitch::after { content: ""; position: absolute; z-index: -1; left: 50%; top: 50%; translate: -50% -50%; border-radius: 50%; aspect-ratio: 1; box-shadow: inset 0 0 0 1px var(--line-strong); }
+.rosetta .pitch::before { width: min(84vw, 560px); }
+.rosetta .pitch::after { width: min(62vw, 410px); box-shadow: inset 0 0 0 1px var(--line); }

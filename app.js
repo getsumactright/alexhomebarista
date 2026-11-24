@@ -26,7 +26,11 @@
   function bottle(r, large) {
     return `<div class="bottle${large ? " bottle--lg" : ""}" style="--tint:${color(r.liquid)}" aria-hidden="true"><span class="bottle__neck"></span><span class="bottle__body"><span class="bottle__liquid" style="--c:${color(r.liquid)}"></span><span class="bottle__label"><span></span></span></span></div>`;
   }
-  const render = (r, large) => (r.kind === "syrup" ? bottle(r, large) : glass(r, large));
+  // a page may draw recipes its own way (window.AHB_RENDER); otherwise glasses and bottles
+  const render = (r, large) =>
+    typeof window.AHB_RENDER === "function"
+      ? window.AHB_RENDER(r, large, { tintKey, color })
+      : r.kind === "syrup" ? bottle(r, large) : glass(r, large);
   const kindLabel = (r) => (r.kind === "syrup" ? "House syrup" : `${r.temp === "hot" ? "Hot" : "Iced"} drink`);
   const shortSpec = (r) => {
     const get = (k) => String((r.spec.find(([a]) => a === k) || [])[1] || "").replace(/ /g, " ");
@@ -397,7 +401,7 @@
   ["top", "recipes", "gear", "brands"].forEach((id) => io.observe(document.getElementById(id)));
 
   // shared with page-specific scripts (strata.js)
-  window.AHB = { render, shortSpec, tintKey, color, open: (id) => openSheet(recipeById(id)) };
+  window.AHB = { render, shortSpec, tintKey, color, copy: copyCode, open: (id) => openSheet(recipeById(id)) };
 
   measure();
   if (sun) requestAnimationFrame(() => sun.classList.add("is-up"));

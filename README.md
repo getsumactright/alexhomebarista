@@ -1,16 +1,18 @@
 # alexhomebarista — website
 
-A static site (HTML/CSS/JS, no build step) replacing Alex Gren's Linktree. Two design directions are presented for her to choose from:
+A static site (HTML/CSS/JS, no build step) replacing Alex Gren's Linktree. Four design directions are presented for her to choose from:
 
 | Page | What it is |
 |---|---|
-| `index.html` | Options page: presents both directions side by side with live previews |
+| `index.html` | Options page: presents all four directions with live previews |
 | `first-light.html` | **A · First Light**: her counter across one day; scrolling moves the window light from 7:02 AM to 7:45 PM |
 | `strata.html` | **B · Glass Strata**: her bio up front, drinks as colorful layered glasses |
+| `rosetta.html` | **C · Rosetta**: one cup from above on espresso; a latte-art rosetta pours itself while her bio turns around the saucer |
+| `counter.html` | **D · Exploded Counter**: her gear as a patent drawing; tap a numbered part for its brand and code |
 
-Both share `styles.css`, `app.js` and `data.js`. Strata adds `strata.css` and `strata.js`. Once a direction is chosen, make it `index.html` and delete the other.
+All four share `styles.css`, `app.js` and `data.js`; each alternate adds its own `.css` and `.js` (B, C and D). C and D use short animations made with Remotion; the source is in [`motion/`](motion/README.md) and the rendered loops in `media/`. Once a direction is chosen, make it `index.html` and delete the others.
 
-The sections below describe First Light; Strata has the same features.
+The sections below describe First Light; the other directions have the same features.
 
 | Section | What's there |
 |---|---|

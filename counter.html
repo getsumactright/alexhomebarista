@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>alexhomebarista · The gear, the codes, the recipes</title>
+  <meta name="description" content="Coffee enthusiast sharing my favorite gear and tools for home brewing. Check out my links for reviews, affiliate offers, and more!">
+  <meta name="theme-color" content="#fbfbf8">
+  <meta property="og:title" content="alexhomebarista">
+  <meta property="og:description" content="Coffee enthusiast sharing my favorite gear and tools for home brewing.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="media/fig-shot-poster.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fbfbf8'/%3E%3Crect x='3' y='3' width='26' height='26' fill='none' stroke='%23151515' stroke-width='1.5'/%3E%3Cpath d='M10 9h12l-1.4 14.4a1.8 1.8 0 0 1-1.8 1.6h-5.6a1.8 1.8 0 0 1-1.8-1.6z' fill='none' stroke='%23151515' stroke-width='1.5'/%3E%3Cpath d='M11.2 17h9.6' stroke='%23b3261e' stroke-width='1.5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="counter.css">
+  <script defer src="data.js"></script>
+  <script defer src="counter.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body class="counter">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="1"/><path d="M16 8V5H4v12h4"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8 16 16.5 7.5M9.5 7.5h7v7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6.5 6.5 11 11m0-11-11 11"/></symbol>
+    <symbol id="i-fig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17"/><path d="M8 16 12 8l4 8M9.5 13h5"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3.5 12.6V3.5h9.1l8 8-9.1 9.1z"/><circle cx="8.5" cy="8.5" r="1.4"/></symbol>
+    <symbol id="i-brief" viewBox="0 0 24 24"><rect x="3.5" y="7.5" width="17" height="12"/><path d="M9 7.5V4.5h6v3M3.5 12.5h17"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-5.5-5.5L19 12l-5.5 5.5"/></symbol>
+  </svg>
+
+  <!-- section hatching, shared by every drawing on the page -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <pattern id="h-diag" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#151515" stroke-width="1"/></pattern>
+      <pattern id="h-diag-r" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#151515" stroke-width="0.9"/></pattern>
+      <pattern id="h-cross" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V5M0 0H5" stroke="#151515" stroke-width="1"/></pattern>
+      <pattern id="h-horiz" width="8" height="7" patternUnits="userSpaceOnUse"><line x1="0" y1="3.5" x2="5" y2="3.5" stroke="#151515" stroke-width="0.8"/></pattern>
+      <pattern id="h-dots" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="0.9" fill="#151515"/></pattern>
+    </defs>
+  </svg>
+
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" aria-label="alexhomebarista, back to top">ALEXHOMEBARISTA</a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#recipes">Recipes</a>
+      <a href="#gear">Gear &amp; Codes</a>
+      <a href="#brands">For Brands</a>
+    </nav>
+    <a class="nav__store" id="navStore" href="#" target="_blank" rel="sponsored noopener">Storefront <svg class="ico" aria-hidden="true"><use href="#i-out"/></svg></a>
+  </header>
+
+  <nav class="tabbar" aria-label="Sections">
+    <a href="#recipes"><svg class="ico"><use href="#i-fig"/></svg><span>Recipes</span></a>
+    <a href="#gear"><svg class="ico"><use href="#i-tag"/></svg><span>Codes</span></a>
+    <a href="#brands"><svg class="ico"><use href="#i-brief"/></svg><span>Brands</span></a>
+  </nav>
+
+  <main id="main">
+    <!-- SHEET 1 · the counter, exploded -->
+    <section class="sheet-page hero" id="top" aria-labelledby="hero-title">
+      <div class="sheet-head">
+        <span>A. GREN · ALEXHOMEBARISTA</span>
+        <span>SHEET 1 OF 4 · FIG. 1</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-text">
+          <h1 id="hero-title" class="hero__title">Coffee enthusiast sharing my favorite gear and tools for home brewing.</h1>
+          <p class="hero__sub">Check out my links for reviews, affiliate offers, and more! Tap any numbered part for its code.</p>
+          <div class="search" id="search">
+            <label class="sr-only" for="q">Search recipes and discount codes</label>
+            <svg class="ico search__ico" aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="q" class="search__input" type="search" placeholder="Search recipes or brand codes"
+              autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list"
+              aria-expanded="false" aria-controls="q-results">
+            <kbd class="search__key" aria-hidden="true">/</kbd>
+            <div class="search__panel" id="q-panel" hidden>
+              <ul class="search__results" id="q-results" role="listbox" aria-label="Results"></ul>
+              <p class="search__empty" id="q-empty" hidden></p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="callout" id="callout" aria-live="polite" aria-label="Selected part">
+          <div class="callout__head"><span class="mono callout__num" id="calloutNum">20</span><span id="calloutName">ESPRESSO MACHINE</span></div>
+          <ul class="callout__list" id="calloutList"></ul>
+        </aside>
+
+      <figure class="fig" id="fig" aria-label="Figure 1: the home counter, exploded into its numbered parts">
+        <div class="fig__scroll">
+          <svg class="fig__svg" viewBox="0 0 1200 520" role="group" aria-label="Numbered parts. Select one for its brand and code.">
+            <!-- counter line -->
+            <path class="fig__ground fig__ground--d" d="M24 470 H1176"/>
+            <path class="fig__ground fig__ground--m" d="M24 470 H640 M24 850 H640"/>
+            <!-- explosion axes -->
+            <g class="fig__axes fig__axes--d">
+              <path d="M132 420 H168 M292 400 H338 M612 410 H652 M772 410 H806 M916 400 H946 M1012 400 H1060"/>
+              <path d="M485 326 V346 M860 240 V250 M978 320 V330"/>
+            </g>
+            <g class="fig__axes fig__axes--m">
+              <path d="M132 420 H176 M286 400 H346 M186 790 H204 M304 780 H336 M400 780 H456"/>
+              <path d="M485 326 V346 M250 620 V630 M368 700 V710"/>
+            </g>
+
+            <g class="part" data-n="70" style="--ax:150px;--axm:110px;--i:0" tabindex="0" role="button" aria-label="Part 70, coffee beans: Trade Coffee">
+              <path class="o" d="M50 470 V300 L62 284 H118 L130 300 V470 Z"/>
+              <path class="o" d="M50 300 H130 M62 284 L70 300 M118 284 L110 300"/>
+              <circle class="o" cx="90" cy="326" r="6"/>
+              <rect class="o" x="62" y="364" width="56" height="58" fill="url(#h-diag-r)"/>
+              <path class="lead" d="M90 226 C 90 252, 92 268, 92 288"/>
+              <text class="num" x="90" y="214" text-anchor="middle">70</text>
+            </g>
+
+            <g class="part" data-n="10" style="--ax:62px;--axm:62px;--i:1" tabindex="0" role="button" aria-label="Part 10, grinder: Mahlkönig">
+              <path class="o" d="M178 222 H282 V231 H178 Z"/>
+              <path class="o" d="M185 231 H275 L258 300 H202 Z"/>
+              <path class="o" d="M196 250 H264" stroke-dasharray="3 4"/>
+              <rect class="o" x="200" y="300" width="60" height="26" fill="url(#h-diag)"/>
+              <rect class="o" x="200" y="326" width="60" height="104" rx="3"/>
+              <circle class="o" cx="230" cy="352" r="10"/>
+              <path class="o" d="M230 342 V352 L236 356"/>
+              <rect class="o" x="216" y="404" width="28" height="22" fill="url(#h-cross)"/>
+              <rect class="o" x="190" y="430" width="80" height="40" rx="3"/>
+              <path class="lead" d="M232 176 C 236 196, 232 210, 232 222"/>
+              <text class="num" x="232" y="164" text-anchor="middle">10</text>
+            </g>
+
+            <g class="part" data-n="20" style="--ax:0px;--axm:0px;--i:2" tabindex="0" role="button" aria-label="Part 20, espresso machine: Gemilai and Casabrews">
+              <path class="o" d="M350 470 V256 Q350 240 366 240 H584 Q600 240 600 256 V470 Z"/>
+              <path class="o" d="M362 240 V228 H588 V240"/>
+              <path class="o" d="M350 300 H600"/>
+              <circle class="o" cx="408" cy="272" r="15"/><path class="o" d="M408 272 L417 264"/>
+              <circle class="o" cx="452" cy="272" r="15"/><path class="o" d="M452 272 L444 263"/>
+              <circle class="o" cx="540" cy="272" r="6"/><circle class="o" cx="562" cy="272" r="6"/>
+              <rect class="o" x="440" y="300" width="90" height="26"/>
+              <path class="o" d="M444 346 H526 V360 Q526 374 512 374 H458 Q444 374 444 360 Z" fill="url(#h-diag)"/>
+              <path class="o" d="M526 352 L604 360 Q612 362 610 370 Q608 376 600 375 L526 368"/>
+              <path class="o" d="M470 374 V384 M500 374 V384"/>
+              <rect class="o" x="362" y="440" width="226" height="14" fill="url(#h-horiz)"/>
+              <path class="o" d="M600 318 H612 Q620 318 620 326 V404"/>
+              <path class="lead" d="M402 186 C 402 208, 408 222, 412 238"/>
+              <text class="num" x="400" y="174" text-anchor="middle">20</text>
+            </g>
+
+            <g class="part" data-n="30" style="--ax:-36px;--axm:0px;--mx:-610px;--my:380px;--i:3" tabindex="0" role="button" aria-label="Part 30, milk: Nama">
+              <path class="o" d="M666 352 L650 338 L692 346 H758 L754 460 Q753 470 743 470 H687 Q677 470 676 460 Z"/>
+              <path class="o" d="M756 372 C 792 372, 794 432, 754 434"/>
+              <path class="o" d="M674 392 H756" stroke-dasharray="3 4"/>
+              <path class="lead" d="M712 284 C 712 306, 714 322, 716 342"/>
+              <text class="num" x="712" y="272" text-anchor="middle">30</text>
+            </g>
+
+            <g class="part" data-n="40" style="--ax:-104px;--axm:-66px;--mx:-610px;--my:380px;--i:4" tabindex="0" role="button" aria-label="Part 40, glass brewer: Caraway and Pure Over">
+              <path class="o" d="M822 196 H898 L868 238 H852 Z"/>
+              <path class="o" d="M820 252 H900 L870 330 Q867 338 870 346 L904 440 Q910 470 882 470 H838 Q810 470 816 440 L850 346 Q853 338 850 330 Z"/>
+              <rect class="o" x="846" y="320" width="28" height="34" fill="url(#h-diag)"/>
+              <path class="o" d="M824 430 Q860 424 896 430 L902 446 Q906 466 882 466 H838 Q814 466 818 446 Z" fill="url(#h-horiz)"/>
+              <path class="lead" d="M860 142 C 860 162, 860 176, 860 194"/>
+              <text class="num" x="860" y="130" text-anchor="middle">40</text>
+            </g>
+
+            <g class="part" data-n="50" style="--ax:-168px;--axm:-118px;--mx:-610px;--my:380px;--i:5" tabindex="0" role="button" aria-label="Part 50, press: AeroPress">
+              <rect class="o" x="952" y="220" width="52" height="10"/>
+              <rect class="o" x="960" y="230" width="36" height="90" rx="3"/>
+              <rect class="o" x="955" y="330" width="46" height="136" rx="3"/>
+              <path class="o" d="M955 360 h10 M955 384 h10 M955 408 h10 M955 432 h10"/>
+              <rect class="o" x="950" y="464" width="56" height="6" fill="url(#h-cross)"/>
+              <path class="lead" d="M978 168 C 978 186, 978 200, 978 218"/>
+              <text class="num" x="978" y="156" text-anchor="middle">50</text>
+            </g>
+
+            <g class="part" data-n="60" style="--ax:-228px;--axm:-170px;--mx:-610px;--my:380px;--i:6" tabindex="0" role="button" aria-label="Part 60, syrup: Surrup.">
+              <path class="o" d="M1105 262 V246 H1132"/>
+              <rect class="o" x="1096" y="262" width="18" height="18"/>
+              <rect class="o" x="1092" y="280" width="26" height="30"/>
+              <path class="o" d="M1070 470 V330 Q1070 310 1092 310 H1118 Q1140 310 1140 330 V470 Z"/>
+              <rect class="o" x="1070" y="352" width="70" height="118" fill="url(#h-diag-r)" stroke="none"/>
+              <rect class="o label" x="1080" y="372" width="50" height="58"/>
+              <path class="o" d="M1088 392 H1122 M1088 404 H1114"/>
+              <path class="lead" d="M1105 196 C 1105 216, 1105 230, 1105 244"/>
+              <text class="num" x="1105" y="184" text-anchor="middle">60</text>
+            </g>
+          </svg>
+        </div>
+
+        <figcaption class="fig__cap">
+          <span class="fig__no">FIG. 1</span>
+          <span class="fig__title">THE HOME COUNTER, EXPLODED</span>
+        </figcaption>
+
+        <button class="fig__toggle" id="figToggle" type="button" aria-pressed="false">Assemble</button>
+      </figure>
+      </div>
+    </section>
+
+    <!-- SHEET 2 · recipes, in section -->
+    <section class="sheet-page sec" id="recipes" aria-labelledby="recipes-title">
+      <div class="sheet-head"><span>A. GREN · ALEXHOMEBARISTA</span><span>SHEET 2 OF 4 · FIGS. 2–12</span></div>
+
+      <div class="fig2">
+        <video class="fig2__video" src="media/fig-shot.mp4" poster="media/fig-shot-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Figure 2: a shot pulled, 18 grams in, 36 grams out, 28 seconds"></video>
+        <div class="sec__intro">
+          <h2 id="recipes-title">Every drink, drawn to spec.</h2>
+          <p>House syrups and café drinks, written for a home machine. The hatching is the recipe: dense is espresso, open is milk, slanted is syrup. Tap any figure for the method.</p>
+          <dl class="legend">
+            <div><dt><svg viewBox="0 0 20 20"><rect width="20" height="20" fill="url(#h-cross)"/></svg></dt><dd>Espresso</dd></div>
+            <div><dt><svg viewBox="0 0 20 20"><rect width="20" height="20" fill="url(#h-diag)"/></svg></dt><dd>Crema &amp; brown syrups</dd></div>
+            <div><dt><svg viewBox="0 0 20 20"><rect width="20" height="20" fill="url(#h-diag-r)"/></svg></dt><dd>Flavored syrups</dd></div>
+            <div><dt><svg viewBox="0 0 20 20"><rect width="20" height="20" fill="url(#h-horiz)"/></svg></dt><dd>Milk</dd></div>
+            <div><dt><svg viewBox="0 0 20 20"><rect width="20" height="20" fill="url(#h-dots)"/></svg></dt><dd>Foam</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="seg" role="radiogroup" aria-label="Filter recipes" id="seg">
+        <span class="seg__thumb" aria-hidden="true"></span>
+        <button type="button" role="radio" aria-checked="true" data-filter="all">All</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="iced">Iced</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="hot">Hot</button>
+        <button type="button" role="radio" aria-checked="false" data-filter="syrup">Syrups</button>
+      </div>
+
+      <ul class="shelf" id="shelf" aria-live="polite"></ul>
+    </section>
+
+    <!-- SHEET 3 · parts list -->
+    <section class="sheet-page sec" id="gear" aria-labelledby="gear-title">
+      <div class="sheet-head"><span>A. GREN · ALEXHOMEBARISTA</span><span>SHEET 3 OF 4 · PARTS 10–70</span></div>
+      <header class="sec__head">
+        <div class="sec__intro">
+          <h2 id="gear-title">Every part, and its code.</h2>
+          <p>The gear and tools I actually use, numbered as in Fig. 1. Tap a code and it's on your clipboard.</p>
+        </div>
+      </header>
+
+      <a class="storefront" id="storefront" href="#" target="_blank" rel="sponsored noopener">
+        <span class="storefront__text">
+          <strong>My Amazon Storefront</strong>
+          <span>Everything on my counter, in one list.</span>
+        </span>
+        <svg class="ico storefront__ico" aria-hidden="true"><use href="#i-out"/></svg>
+      </a>
+
+      <div class="gear" id="gearList"></div>
+
+      <p class="fineprint">Some of these are affiliate links. If you buy through them I may earn a small commission, at no extra cost to you. I only list gear I use.</p>
+    </section>
+
+    <!-- SHEET 4 · claims -->
+    <section class="sheet-page sec sec--brands" id="brands" aria-labelledby="brands-title">
+      <div class="sheet-head"><span>A. GREN · ALEXHOMEBARISTA</span><span>SHEET 4 OF 4 · CLAIMS 1–4</span></div>
+      <header class="sec__head">
+        <div class="sec__intro">
+          <h2 id="brands-title">Work with me.</h2>
+          <p>I make coffee content for brands that belong on a real home counter: tested on my own machine, made for people who'll make it again tomorrow.</p>
+        </div>
+      </header>
+
+      <div class="brands">
+        <h3 class="sub-h">References cited</h3>
+        <ul class="wordmarks" id="wordmarks"></ul>
+      </div>
+
+      <div class="offers">
+        <h3 class="sub-h">What I claim</h3>
+        <ul class="offers__list" id="offers"></ul>
+      </div>
+
+      <div class="specs">
+        <h3 class="sub-h">Specification</h3>
+        <dl class="specs__list" id="specs"></dl>
+      </div>
+
+      <div class="pitch">
+        <p class="pitch__line">Got something that belongs on the counter?</p>
+        <div class="pitch__actions">
+          <a class="btn btn--primary" id="pitchPrimary" href="#">Start a partnership</a>
+          <a class="btn btn--quiet" id="pitchKit" href="#">Request the media kit</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__body">
+      <p class="foot__line">Thanks for stopping by. Go make something good.</p>
+      <ul class="foot__social" id="socials"></ul>
+      <p class="foot__small">© <span id="year">2026</span> Alex Gren · alexhomebarista · drawings are illustrative, not to scale</p>
+    </div>
+  </footer>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+    <div class="sheet__grip" id="sheetGrip"><span></span></div>
+    <button class="sheet__close" type="button" id="sheetClose" aria-label="Close recipe"><svg class="ico"><use href="#i-close"/></svg></button>
+    <div class="sheet__scroll">
+      <div class="sheet__top">
+        <div class="sheet__object" id="sheetObject"></div>
+        <div>
+          <h2 class="sheet__title" id="sheetTitle"></h2>
+          <p class="sheet__kind" id="sheetKind"></p>
+          <p class="sheet__blurb" id="sheetBlurb"></p>
+        </div>
+      </div>
+      <dl class="spec-row" id="sheetSpec"></dl>
+      <div class="sheet__cols">
+        <div><h3 class="sub-h">You'll need</h3><ul class="sheet__ing" id="sheetIng"></ul></div>
+        <div><h3 class="sub-h">Method</h3><ol class="sheet__steps" id="sheetSteps"></ol></div>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
