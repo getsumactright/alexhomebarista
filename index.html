@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>alexhomebarista · Two website directions</title>
+  <meta name="description" content="Two design directions for the new alexhomebarista website.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f5f5f7">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f5f5f7'/%3E%3Cpath d='M10 7h12l-1.6 18.2a2 2 0 0 1-2 1.8h-4.8a2 2 0 0 1-2-1.8z' fill='%23fff' stroke='%231d1d1f' stroke-width='1.6'/%3E%3Cpath d='M11.2 17h9.6l-.7 8a1.4 1.4 0 0 1-1.4 1.3h-5.4a1.4 1.4 0 0 1-1.4-1.3z' fill='%233b2416'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f5f7; --card: #ffffff; --ink: #1d1d1f; --ink-2: #45454a; --ink-3: #66666b;
+      --line: rgba(29, 29, 31, 0.1); --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --gutter: clamp(20px, 5vw, 64px);
+      color-scheme: light;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    * { margin: 0; }
+    html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+    body { font-family: "Host Grotesk", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; font-size: 1.0625rem; line-height: 1.55; color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; }
+    ::selection { background: #ffd49a; }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 8px; }
+    ul { list-style: none; padding: 0; }
+    h1, h2, h3 { text-wrap: balance; }
+
+    .wrap { width: min(100% - 2 * var(--gutter), 1200px); margin-inline: auto; }
+    header.top { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.875rem; }
+    .top b { font-weight: 650; letter-spacing: -0.02em; font-size: 0.9375rem; }
+    .top span { color: var(--ink-3); }
+
+    .intro { text-align: center; padding: clamp(56px, 9vw, 112px) 0 clamp(48px, 6vw, 72px); }
+    .intro h1 { font-size: clamp(2.5rem, 6.4vw, 4.75rem); line-height: 1.02; letter-spacing: -0.04em; font-weight: 680; }
+    .intro p { margin: 18px auto 0; max-width: 44ch; font-size: clamp(1.125rem, 1.8vw, 1.3125rem); line-height: 1.45; color: var(--ink-2); letter-spacing: -0.01em; }
+
+    .options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(20px, 3vw, 32px); }
+    .option { background: var(--card); border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgba(29,29,31,.04), 0 12px 40px rgba(29,29,31,.06); }
+    .preview { position: relative; display: block; aspect-ratio: 1440 / 900; overflow: hidden; background: #e9ebe8; text-decoration: none; }
+    .preview iframe { position: absolute; left: 0; top: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; }
+    .preview::after { content: "Open full site ↗"; position: absolute; right: 16px; bottom: 16px; padding: 9px 14px; border-radius: 999px; font-size: 0.8125rem; font-weight: 600; color: #fff; background: rgba(29,29,31,.82); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); opacity: 0; transform: translateY(6px); transition: opacity .3s var(--ease), transform .4s var(--ease); }
+    .preview:hover::after, .preview:focus-visible::after { opacity: 1; transform: none; }
+    .body { padding: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: 18px; flex: 1; }
+    .body h2 { font-size: clamp(1.75rem, 3vw, 2.375rem); line-height: 1.05; letter-spacing: -0.035em; font-weight: 680; }
+    .body .line { margin-top: 6px; font-size: 1.125rem; color: var(--ink-2); letter-spacing: -0.01em; }
+    .body ul li { padding: 11px 0; border-top: 1px solid var(--line); color: var(--ink-2); }
+    .body ul li strong { color: var(--ink); font-weight: 620; }
+    .best { font-size: 0.9375rem; color: var(--ink-3); }
+    .best strong { color: var(--ink); font-weight: 600; }
+    .actions { margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn { display: inline-flex; align-items: center; height: 46px; padding: 0 22px; border-radius: 999px; font-weight: 580; font-size: 1rem; text-decoration: none; transition: background-color .2s, transform .12s var(--ease); }
+    .btn:active { transform: scale(.97); }
+    .btn--primary { background: var(--ink); color: #fff; }
+    .btn--primary:hover { background: #333336; }
+    .btn--quiet { box-shadow: inset 0 0 0 1px rgba(29,29,31,.18); }
+    .btn--quiet:hover { background: rgba(29,29,31,.05); }
+
+    .shared { margin-top: clamp(72px, 9vw, 120px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(20px, 4vw, 56px); }
+    .shared h2, .next h2 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); line-height: 1.05; letter-spacing: -0.035em; font-weight: 680; }
+    .shared ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 clamp(20px, 4vw, 48px); }
+    .shared li { padding: 16px 0 18px; border-top: 1px solid rgba(29,29,31,.16); }
+    .shared li strong { display: block; font-weight: 640; letter-spacing: -0.015em; }
+    .shared li span { color: var(--ink-2); font-size: 0.9375rem; }
+
+    .next { margin-top: clamp(72px, 9vw, 120px); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(20px, 4vw, 56px); }
+    .next ol { padding: 0; list-style: none; counter-reset: n; }
+    .next li { counter-increment: n; display: grid; grid-template-columns: 32px 1fr; padding: 14px 0; border-top: 1px solid rgba(29,29,31,.16); color: var(--ink-2); }
+    .next li::before { content: counter(n); font-weight: 600; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+    .next li strong { color: var(--ink); font-weight: 620; }
+
+    footer { margin-top: clamp(72px, 9vw, 120px); padding: 28px 0 48px; border-top: 1px solid var(--line); font-size: 0.8125rem; color: var(--ink-3); }
+
+    @media (max-width: 860px) {
+      .options, .shared, .next { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .shared ul { grid-template-columns: 1fr; }
+      .preview::after { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top"><b>alexhomebarista</b><span>Website directions · draft</span></header>
+
+    <section class="intro" aria-labelledby="t">
+      <h1 id="t">Two directions for your new site.</h1>
+      <p>Same content, same features, two different feelings. Open each one, scroll all the way down, try it on your phone, and pick the one that feels like you.</p>
+    </section>
+
+    <section class="options" aria-label="Design options">
+      <article class="option">
+        <a class="preview" href="first-light.html" aria-label="Open Option A, First Light">
+          <iframe src="first-light.html" title="Preview of First Light" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        </a>
+        <div class="body">
+          <div>
+            <h2>A · First Light</h2>
+            <p class="line">Your counter, across one day.</p>
+          </div>
+          <ul>
+            <li><strong>Window light moves as you scroll</strong>, from 7 a.m. to evening, with a little clock in the corner keeping time.</li>
+            <li><strong>Calm and distinctive.</strong> Cool stone, soft sunlight, one drink standing in the light.</li>
+            <li><strong>Each section is a moment in the day</strong>: recipes in the morning, codes at noon, brands in the afternoon.</li>
+          </ul>
+          <p class="best"><strong>Best if</strong> you want a site that feels unlike anyone else's.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="first-light.html">Open First Light</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="option">
+        <a class="preview" href="strata.html" aria-label="Open Option B, Glass Strata">
+          <iframe src="strata.html" title="Preview of Glass Strata" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+        </a>
+        <div class="body">
+          <div>
+            <h2>B · Glass Strata</h2>
+            <p class="line">Every drink, in layers.</p>
+          </div>
+          <ul>
+            <li><strong>Your bio, front and center</strong>, word for word from your current page.</li>
+            <li><strong>Drinks as colorful layered glasses</strong> that pour themselves in when the page opens, each tinted by its syrup.</li>
+            <li><strong>Bright and simple</strong>: Apple-white, with all the color coming from your drinks.</li>
+          </ul>
+          <p class="best"><strong>Best if</strong> you want your recipes to be the star.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="strata.html">Open Glass Strata</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="shared" aria-labelledby="s">
+      <h2 id="s">Both versions include</h2>
+      <ul>
+        <li><strong>Search everything</strong><span>Type a flavor or a brand and get the recipe or the code instantly.</span></li>
+        <li><strong>Tap to copy codes</strong><span>Every discount code copies in one tap, ready to paste at checkout.</span></li>
+        <li><strong>Recipe cards with share links</strong><span>Each recipe has its own link you can drop into a video caption.</span></li>
+        <li><strong>A page for brands</strong><span>Partners, what you make, a spec sheet, and one clear way to reach you.</span></li>
+        <li><strong>Built for phones</strong><span>A thumb-friendly tab bar, because most visitors arrive from your bio link.</span></li>
+        <li><strong>One place to edit</strong><span>Recipes, links and codes live in one file, so updates don't touch the design.</span></li>
+      </ul>
+    </section>
+
+    <section class="next" aria-labelledby="n">
+      <h2 id="n">What we need from you</h2>
+      <ol>
+        <li><span><strong>Your pick</strong>: A, B, or anything you'd like to borrow from the other.</span></li>
+        <li><span><strong>Your recipes.</strong> The drinks and syrups shown now are samples so you can see the layout.</span></li>
+        <li><span><strong>A contact email</strong> for brand inquiries. Until then, brands are sent to your Instagram DMs.</span></li>
+        <li><span><strong>Your social links and partners</strong>, to confirm everything listed is right, plus your tracked Casabrews Amazon links.</span></li>
+      </ol>
+    </section>
+
+    <footer>Draft for review · sample recipes are placeholders · not yet a live public site</footer>
+  </div>
+
+  <script>
+    // scale each live preview to its card
+    (() => {
+      const fit = () => document.querySelectorAll(".preview").forEach((p) => {
+        const f = p.querySelector("iframe");
+        f.style.transform = `scale(${p.clientWidth / 1440})`;
+      });
+      fit();
+      new ResizeObserver(fit).observe(document.body);
+    })();
+  </script>
+</body>
+</html>

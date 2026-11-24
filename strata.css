@@ -1,0 +1,118 @@
+/* alexhomebarista · Glass Strata (alternate homepage)
+   Every drink drawn as its glass, colored by its syrup. White page; the color comes from the drinks. */
+
+.strata {
+  --ground: #ffffff;
+  --ground-lift: #f5f5f7;
+  --amber: #3b2416;               /* espresso: focus, caret and active state on this page */
+  --fill: rgba(29, 29, 31, 0.05);
+  --fill-hover: rgba(29, 29, 31, 0.08);
+  background: #fff;
+}
+
+/* nav */
+.strata .nav { background: rgba(255, 255, 255, 0.76); box-shadow: 0 1px 0 rgba(29, 29, 31, 0.07); }
+.nav__store {
+  justify-self: end; display: inline-flex; align-items: center; gap: 4px;
+  font-size: 0.8125rem; font-weight: 560; color: var(--ink-2); text-decoration: none;
+  padding: 6px 10px; border-radius: 999px; transition: color .2s, background-color .2s;
+}
+.nav__store:hover { color: var(--ink); background: var(--fill); }
+.nav__store .ico { width: 15px; height: 15px; }
+
+/* hero: her own words */
+.strata .hero { padding-bottom: 0; }
+.strata .hero__title {
+  max-width: 21ch; font-size: clamp(2.25rem, 4.8vw, 4.25rem);
+  line-height: 1.04; letter-spacing: -0.035em; font-weight: 660;
+}
+.strata .hero__sub { max-width: none; margin-top: 18px; }
+.strata .search { margin-top: 32px; }
+.strata .search__input { background: #f5f5f7; box-shadow: inset 0 0 0 1px rgba(29, 29, 31, 0.05); }
+.strata .search__input:focus { background: #fff; box-shadow: 0 10px 30px rgba(29, 29, 31, 0.08), inset 0 0 0 1.5px var(--ink); }
+
+/* ───────── the lineup ───────── */
+.lineup-wrap { position: relative; z-index: 1; margin-top: clamp(44px, 6vh, 80px); }
+.lineup {
+  display: flex; justify-content: center; align-items: flex-start; /* equal-height glass boxes: the shelf line stays unbroken */
+  width: min(100% - 2 * var(--gutter), 1240px); margin-inline: auto;
+}
+.strata #syrups { padding-top: clamp(96px, 11vw, 150px); }
+.lineup li { flex: 1 1 0; min-width: 0; display: flex; }
+.pour-item {
+  width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 0 clamp(6px, 1.2vw, 16px);
+}
+.pour-item__obj {
+  width: 100%; height: 268px; display: flex; align-items: flex-end; justify-content: center;
+  border-bottom: 1px solid var(--line-strong); padding-bottom: 1px;
+}
+.pour-item .glass { transition: transform .5s var(--ease-out); }
+.pour-item:hover .glass { transform: translateY(-8px); }
+.pour-item:active .glass { transform: translateY(-3px) scale(.98); transition-duration: .12s; }
+.pour-item__name { margin-top: 22px; font-size: 1rem; font-weight: 620; letter-spacing: -0.02em; line-height: 1.2; text-wrap: balance; }
+.pour-item__meta {
+  display: inline-flex; align-items: center; gap: 7px; margin-top: 6px;
+  font-size: 0.8125rem; color: var(--ink-3); font-variant-numeric: tabular-nums;
+}
+.pour-item__meta::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--tint); box-shadow: inset 0 0 0 1px rgba(29, 29, 31, 0.12); }
+.lineup .glass--lg { --w: 112px; --h: 236px; --r: 22px; }
+.lineup .glass--lg.glass--hot { --w: 126px; --h: 158px; --r: 28px; }
+
+/* the pour: each glass fills bottom-up once, in sequence */
+@keyframes pour { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes settle { from { opacity: 0; transform: translateY(-14px) rotate(var(--a, 0deg)); } }
+.lineup .glass__fill { animation: pour 1.15s cubic-bezier(0.22, 1, 0.36, 1) both; animation-delay: calc(var(--i) * 110ms + 250ms); }
+.lineup .glass__ice { animation: settle .5s var(--ease-out) both; animation-delay: calc(var(--i) * 110ms + 1000ms); }
+
+.lineup__hint { margin-top: 28px; text-align: center; font-size: 0.875rem; color: var(--ink-3); }
+.strata #shelf { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 880px; margin-inline: auto; }
+
+/* glass on white: a defined wall, a lit rim, and a shadow tinted by what's inside */
+.strata .glass__body, .strata .bottle__body {
+  background: linear-gradient(90deg, rgba(236, 238, 242, 0.9), rgba(255, 255, 255, 0.35) 38%, rgba(255, 255, 255, 0.25) 62%, rgba(232, 234, 238, 0.85));
+  box-shadow: inset 0 0 0 1.5px rgba(29, 29, 31, 0.11), inset 3px 0 0 #fff, inset -2px 0 0 rgba(29, 29, 31, 0.06);
+}
+.strata .glass__base { background: rgba(236, 238, 242, 0.7); }
+.strata .glass::after, .strata .bottle::after {
+  left: 0; right: -30%; bottom: -9px; height: 16px; transform: skewX(-30deg);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--tint) 60%, rgba(40, 30, 20, 0.6)), transparent);
+  opacity: .5; filter: blur(2px);
+}
+
+/* sections: centered Apple-style headers, content below */
+.strata .sec__head { display: block; text-align: center; }
+.strata .sec__intro p { margin-inline: auto; }
+.strata .seg { display: grid; width: max-content; margin-inline: auto; }
+.strata .code { background: #f5f5f7; box-shadow: inset 0 0 0 1px rgba(29, 29, 31, 0.08); }
+.strata .code:hover { background: #fff; }
+.strata .code.is-copied { background: var(--ink); }
+.strata .code--none, .strata .code--none:hover { background: none; box-shadow: none; }
+.strata .item__object { margin-bottom: 22px; }
+.strata .wordmarks { justify-content: center; }
+.strata .brands .sub-h { text-align: center; }
+.strata .pitch { display: block; text-align: center; }
+.strata .pitch__line { max-width: none; }
+.strata .pitch__actions { justify-content: center; margin-top: 24px; }
+.strata .foot { display: block; text-align: center; }
+.strata .foot__social { justify-content: center; }
+
+/* phones: the lineup becomes a swipeable shelf */
+@media (max-width: 767px) {
+  .lineup {
+    justify-content: flex-start; width: 100%;
+    overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    padding-inline: var(--gutter); scrollbar-width: none;
+  }
+  .lineup::-webkit-scrollbar { display: none; }
+  .lineup li { flex: 0 0 42%; scroll-snap-align: center; }
+  .pour-item__obj { height: 220px; }
+  .lineup .glass--lg { --w: 96px; --h: 200px; }
+  .lineup .glass--lg.glass--hot { --w: 108px; --h: 136px; }
+  .strata #shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav__store { padding-inline: 6px; }
+}
+@media (hover: none) { .pour-item:hover .glass { transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .lineup .glass__fill, .lineup .glass__ice { animation: none; }
+}
